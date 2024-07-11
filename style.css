@@ -4,23 +4,23 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #919090;
     font-family: Arial, sans-serif;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4, 150px);
     grid-gap: 10px;
 }
 
 .card {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
     background-color: #fff;
     border: 1px solid #ccc;
