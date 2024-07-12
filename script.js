@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let flippedCards = []; // Cartes retournées temporairement
     let matchedCards = []; // Cartes assorties
+    let errorNbrs = 0; // Nombre d'erreurs accumulées
 
     // Fonction pour mélanger les éléments d'un tableau
     function shuffle(array) {
@@ -41,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
             flippedCards.push(card);
             card.textContent = card.dataset.symbol;
 
-            // Si deux cartes sont retournées, vérifiez si elles correspondent
+            // Si deux cartes sont retournées, vérifie si elles correspondent
             if (flippedCards.length === 2) {
-            setTimeout(checkMatch, 1000); // Attendez un moment avant de vérifier la correspondance
+            setTimeout(checkMatch, 1000); // Une attente de 1 seconde avant de vérifier la correspondance
             }
         }
     }
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function checkMatch() {
         const [card1, card2] = flippedCards;
 
-        // Vérifiez si les symboles des deux cartes correspondent
+        // Vérifie si les symboles des deux cartes correspondent
         if (card1.dataset.symbol === card2.dataset.symbol) {
             card1.classList.add('matched');
             card2.classList.add('matched');
@@ -60,13 +61,20 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             card1.textContent = '';
             card2.textContent = '';
+            errorNbrs++
         }
 
-        flippedCards = []; // Réinitialisez les cartes retournées
+        flippedCards = []; // Réinitialise les cartes retournées
 
-        // Si toutes les cartes sont assorties, affichez un message de victoire et réinitialisez le jeu
+        // Si toutes les cartes sont assorties, affiche un message de victoire et réinitialise le jeu
         if (matchedCards.length === cards.length) {
             alert('Félicitations, vous avez gagné !');
+            resetGame();
+        }
+        
+        // Si le nombre d'erreurs atteint 5, affiche un message de défaite et réintialise le jeu
+        if (errorNbrs === 5) {
+            alert('Dommage, vous avez perdu !');
             resetGame();
         }
     }
@@ -79,6 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
         createGameBoard();
     }
 
-    // Initialisez le jeu en créant le plateau de jeu
+    // Initialise le jeu en créant le plateau de jeu
     createGameBoard();
 });
