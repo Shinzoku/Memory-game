@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetGame() {
         flippedCards = [];
         matchedCards = [];
+        errorNbrs = 0;
         document.getElementById('game-board').innerHTML = '';
         createGameBoard();
     }
