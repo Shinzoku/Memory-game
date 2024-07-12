@@ -81,6 +81,7 @@ votre-depot/
 ## Personnalisation
 
 + Vous pouvez ajouter ou modifier les symboles Unicode en modifiant le tableau symbols dans le fichier script.js.
++ Vous pouvez ajuster la difficultée en augmentant ou en diminuant le nombre d'erreurs maximum.
 + Vous pouvez ajuster les styles en modifiant le fichier styles.css.
 
 ## Auteur
